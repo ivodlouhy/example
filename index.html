@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>Example</title>
+    <meta name="description"
+          content=""/>
+    <meta name="keywords" content="material app,react,material,kit,dashboard,application,admin,template"/>
+    <meta name="author" content="Ivo Dlouhy"/>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<script>
+    const Http = new XMLHttpRequest();
+    const url = '/api/accounts';
+    Http.open("GET", url);
+    Http.onreadystatechange = function (e) {
+        if (this.readyState == 4 && this.status == 200) {
+            const accounts = JSON.parse(Http.responseText);
+            for (let account of accounts) {
+                document.writeln(account)
+            }
+        }
+    }
+    Http.send();
+</script>
+</body>
+</html>
